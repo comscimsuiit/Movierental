@@ -10,7 +10,7 @@
 
 			<%--<a class="brand" href="${createLink(uri: '/')}">--%>
 			<a class="brand" href="http://localhost:8080/MovieRental/main/index">
-				<img class="logo" src="${resource(plugin: 'kickstart-with-bootstrap', dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
+				<img class="logo" src="${resource(plugin: 'kickstart-with-bootstrap', dir:'kickstart/img',file:'DVD.png')}" alt="${meta(name:'app.name')}" />
 				${meta(name:'app.name')}
 				<%--<small> v${meta(name:'app.version')}</small>--%>
 			</a>
@@ -48,9 +48,9 @@
 					<%--<g:render template="/_menu/language"/>--%>													
 					<%--<g:render template="/_menu/info"/>--%>													
 					<%--<g:render template="/_menu/user"/><!-- NOTE: the renderDialog for the "Register" modal dialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->--%>
-					<g:render template="/_menu/admin"/>
-					<g:render template="/_menu/logout"/>													
-<%-- 					<g:render template="/_menu/search"/> --%>
+					<%--<g:render template="/_menu/admin"/>--%>
+					<g:render template="/_menu/logout"/>												
+					<%--<g:render template="/_menu/search"/> --%>
 	  			</div>
 
 			</div>

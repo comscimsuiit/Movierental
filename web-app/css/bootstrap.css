@@ -162,6 +162,7 @@ body {
   line-height: 18px;
   color: #333333;
   background-color: #ffffff;
+  background-image: url("/images/img/tile.jpg");
 }
 
 a {

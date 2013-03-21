@@ -1,23 +1,30 @@
 <html>
 <head>
+	<meta name="layout" content="clerk" />
 	<title>View Customer's Ledger</title>
+	
+	<style type="text/css">
+		body {
+			background-image: url("../images/img/tile.jpg");
+		}
+	</style>
+	
 </head>
 <body>
 	
 	<strong>
 	<div align="left">
-		Customer ID: ${info.id}
+		<font color="white">Customer ID: ${info.id}</font>
 		<br/>
-		First Name: ${info.first_name}
+		<font color="white">First Name: ${info.first_name}</font>
 		<br/>
-		Last Name: ${info.last_name}
+		<font color="white">Last Name: ${info.last_name}</font>
 		<br/>
-		Address: ${info.address}
+		<font color="white">Address: ${info.address}</font>
 		<br/>
-		Contact Number: ${info.contact_number}
+		<font color="white">Contact Number: ${info.contact_number}</font>
 		<br/>
-		Email Address: ${info.email}
-		
+		<font color="white">Email Address: ${info.email}</font>
 	</div>
 	</strong>
 	
@@ -27,9 +34,9 @@
 	
 	<div align="center">
 		<g:if test="${liabilities}">
-			<strong>Pending Liabilities:</strong>
+			<font color="white"><strong>Pending Liabilities:</strong></font>
 			
-			<table border="1" width="600">
+			<table border="1" width="600" class="btn-inverse" style='width:600px;'>
 				<tr>
 					<th>Movie ID</th>
 					<th>Title</th>
@@ -48,7 +55,7 @@
 			</table>
 			
 			<bold>
-				The client still has a liability, he/she can't rent another movie/s for the moment.
+				<font color="white">The client still has a liability, he/she can't rent another movie/s for the moment.</font>
 			</bold>
 			
 			<g:form controller="clerk" action="selectMovie">

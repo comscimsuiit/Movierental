@@ -3,29 +3,36 @@
 	<meta name="layout" content="admin" />
 	<meta name="description" content="Creating Modal Window with Twitter Bootstrap">
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<meta charset="utf-8"> 
+	<meta charset="utf-8">
 	<title>Administrator Home</title>
+	
+	<style type="text/css">
+		body {
+			background-image: url("../images/img/tile.jpg");
+		}
+	</style>
+
 </head>
 <body>
 	
-	<center>
-	<div class="container">
+	<div align="center" class="container">
 		<div id="example" class="modal hide fade in" style="display: none; ">
-        	<div class="modal-header">
-            	<a class="close" data-dismiss="modal">x</a>
+        	<div class="modal-header" align="left">
+            	<a class="close icon-remove" data-dismiss="modal"></a>
+				<h3>Please fill out the form</h3>
             </div>
             <div class="modal-body">
             	<g:form controller="main" action="addClerk">
-					Full Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="fullName">
+					Full Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="fullName" required="true"/>
 					<br/>
-					Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="userName">
+					Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="userName" required="true"/>
 					<br/>
-					Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password1">
+					Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password1" required="true">
 					<br/>
-					Confirm password: <input type="password" name="password2">
+					Confirm Password: <input type="password" name="password2" required="true">
 					<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary btn-large" value="Submit">
-				</g:form>	        
+				</g:form>
             </div>
             <div class="modal-footer">
               	<%--<a href="#" class="btn btn-success">Confirm</a>--%>
@@ -33,28 +40,27 @@
             </div>
         </div>
 	</div>
-	<p>
-		<a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Add Clerk</a>
-	</p>
-	</center>
+	<div align="center">
+		<a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Add Clerk</a><br/><br/>
+	</div>
 	
-	<center>
-	<div class="container">
+	<div align="center" class="container">
 		<div id="example1" class="modal hide fade in" style="display: none; ">
-        	<div class="modal-header">
-            	<a class="close" data-dismiss="modal">x</a>
+        	<div class="modal-header" align="left">
+            	<a class="close icon-remove" data-dismiss="modal"></a>
+				<h3>Please fill out the form</h3>
             </div>
             <div class="modal-body">
  				<g:form controller="main" action="addCustomer">
-					First Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="firstName">
+					First Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="firstName" required="true">
 					<br/>
-					Last Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="lastName">
+					Last Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="lastName" required="true">
 					<br/>
-					Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address">
+					Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" required="true">
 					<br/>
-					Contact Number: <input type="text" name="contactNumber">
+					Contact Number: <input type="text" name="contactNumber" required="true">
 					<br/>
-					Email Address:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email">
+					Email Address:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" required="true,email">
 					<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary btn-large" value="Submit">
 				</g:form>	        
@@ -65,13 +71,18 @@
             </div>
         </div>
 	</div>
-	<p>
-		<a data-toggle="modal" href="#example1" class="btn btn-primary btn-large">Add Customer</a>
-	</p>
-	</center>
+	<div align="center">
+		<a data-toggle="modal" href="#example1" class="btn btn-primary btn-large">Add Customer</a><br/><br/>
+	</div>
 	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap-modal.js"></script>
+	
+	<div align="center">
+		<g:form controller="main" action="searchForCustomer">
+			<input type="submit" class="btn btn-primary btn-large" value="View Customer">
+		</g:form>
+	</div>
 	
 	<%--<div align="center">
 		<g:form controller="main" action="addClerkInit">
@@ -93,31 +104,35 @@
 	
 	<div align="center">
 		<g:form controller="main" action="showTransactions">
-			<input type="submit" class="btn btn-primary btn-large" value="Show Transactions">
+			<input type="submit" class="btn btn-primary btn-large" value="Show Transaction">
 		</g:form>
-	</div><br/><br/>
+	</div>
 	
-	<strong>Customer Request:</strong>
+	<br/><br/>
 
 	<div>
 		<table width="1000">
+			
+		<g:each in="${requests}" var="request">
+			<%--<table width="900">--%>
+			<strong><font color="white">Customer Request:</font></strong>
 			<tr>
-				<th>Firstname</th>
-				<th>Lastname</th>
-				<th>Address</th>
-				<th>Contact Number</th>
-				<th>Email</th>
+				<th><font color="white">ID</font></th>
+				<th><font color="white">First Name</font</th>
+				<th><font color="white">Last Name</font</th>
+				<th><font color="white">Address</font</th>
+				<th><font color="white">Contact Number</font</th>
+				<th><font color="white">Email</font</th>
 				<th> </th>
 				<th> </th>
 			</tr>
-		<g:each in="${requests}" var="request">
-			<%--<table width="900">--%>
 			<tr>
-				<td><center>${request.first_name}</center></td>
-				<td><center>${request.last_name}</center></td>
-				<td><center>${request.address}</center></td>
-				<td><center>${request.contact_number}</center></td>
-				<td><center>${request.email}</center></td>
+				<td><font color="white"><center>${request.id}</center></font></td>
+				<td><font color="white"><center>${request.first_name}</center></font></td>
+				<td><font color="white"><center>${request.last_name}</center></font></td>
+				<td><font color="white"><center>${request.address}</center></font></td>
+				<td><font color="white"><center>${request.contact_number}</center></font></td>
+				<td><font color="white"><center>${request.email}</center></font></td>
 				<td>
 					<g:form controller="main" action="requestAction">
 						<input type="hidden" name="id" value="${request.id}">
