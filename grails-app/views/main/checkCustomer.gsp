@@ -13,19 +13,19 @@
 <body>
 	
 	<div align="center">
-		<g:form class="form-search" controller="clerk" action="searchForCustomer">
+		<g:form class="form-search" controller="main" action="searchForCustomer">
 			<input type="text" placeholder="Search Customer" name="parameter" value="${parameter}" class="input-medium search-query icon-search">
 			<input type="submit" class="btn btn-primary btn-small" value="Search">
 		</g:form>
 	</div>
 	
 	<div align="center">
+	<g:if test="${infos}">
 		<table width="400px">
-			<tr>
-				<th><font color="white">First Name</font></th>
-				<th><font color="white">Last Name</font></th>
-			</tr>
-			
+				<tr>
+					<th><font color="white">First Name</font></th>
+					<th><font color="white">Last Name</font></th>
+				</tr>
 			<g:each in="${infos}" var="${info}">
 				<tr>
 					<td><font color="white"><center>${info.first_name}</center></font></td>
@@ -39,13 +39,14 @@
 				</tr>
 			</g:each>
 		</table>
+	</g:if>
 	</div>
 	
 	<div>
 		<g:form controller="main" action="index">
 			<input type="submit" class="btn btn-primary btn-small" value="Back">
 		</g:form>
-	</div><br/><br/><br/>
+	</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	
 </body>
 </html>

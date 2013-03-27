@@ -36,7 +36,7 @@
 			<tr>
 				<g:form controller="clerk" action="clearLiability">
 				<g:each in="${movies}" var="movie">
-						<td><center>${movie.id}</center></td>
+						<td><center>${movie.movie_id}</center></td>
 						<td><center>${movie.title}</center></td>
 						<td><center>${movie.genre}</center></td>
 						<td><center>${movie.actor_or_actress}</center></td>
@@ -51,7 +51,7 @@
 						<g:else>
 							<td><center>0</center></td>
 						</g:else>
-						<td><input type="checkbox" name="movieID" value="${movie.id}"></td>
+						<td><input type="checkbox" name="movieID" value="${movie.movie_id}"></td>
 					<tr/>
 				</g:each>
 				
@@ -61,6 +61,7 @@
 		&nbsp;<font color="white">TOTAL OVERDUE FEE: ${total}</font>
 		<br/>
 		<input type="hidden" name="totalDue" value="${total}">
+		<input type="hidden" name="id" value="${id}">
 		<input type="submit" class="btn btn-primary btn-large" value="Return Movie">
 		</g:form>
 	</div>

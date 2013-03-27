@@ -15,7 +15,6 @@
 	
 </head>
 <body>
-	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap-modal.js"></script>
 
@@ -55,7 +54,7 @@
 	<br/>
 	<br/>
 	
-	
+	<g:if test = "${counter < 3}">
 	<div align="center">
 		<font color="white">Search for Title, Director, Actor or Actress, Genre, or Medium:</font>
 		<g:form controller="clerk" action="selectMovie" class="form-search">
@@ -64,6 +63,7 @@
 			<input type="submit" class="btn btn-primary btn-small" value="Search">
 		</g:form>
 	</div>
+	
 	
 	<div align="center">
 		<table width="980">
@@ -78,7 +78,6 @@
 			</tr>
 			<g:each in="${movies}" var="${movie}">
 			<tr>
-			
 				<td bgcolor="AntiqueWhite"><center>${movie.title}</center></td>
 				<td bgcolor="AntiqueWhite"><center>${movie.actor_or_actress}</center></td>
 				<td bgcolor="AntiqueWhite"><center>${movie.director}</center></td>
@@ -100,7 +99,7 @@
 			</g:each>
 		</table>
 	</div><br/>
-	
+	</g:if>
 	<div class="container">
 		<div id="example" class="modal hide fade in" style="display: none; ">
         	<div class="modal-header" align="center">

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="0" name="AccountControllerTests" package="movierental" tests="1" time="4.072" timestamp="2013-03-26T05:59:41">
+      <properties />
+
+      <testcase classname="movierental.AccountControllerTests" name="testSomething" time="3.448" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="1" name="AccountTests" package="movierental" tests="1" time="2.605" timestamp="2013-03-26T05:59:46">
+      <properties />
+
+      <testcase classname="movierental.AccountTests" name="testSomething" time="1.95" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="2" name="CartTests" package="movierental" tests="1" time="1.514" timestamp="2013-03-26T05:59:49">
+      <properties />
+
+      <testcase classname="movierental.CartTests" name="testSomething" time="0.094" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="3" name="ClerkControllerTests" package="movierental" tests="1" time="0.484" timestamp="2013-03-26T05:59:50">
+      <properties />
+
+      <testcase classname="movierental.ClerkControllerTests" name="testSomething" time="0.328" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="4" name="CustomerTests" package="movierental" tests="1" time="0.265" timestamp="2013-03-26T05:59:51">
+      <properties />
+
+      <testcase classname="movierental.CustomerTests" name="testSomething" time="0.125" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="5" name="MainControllerTests" package="movierental" tests="1" time="0.328" timestamp="2013-03-26T05:59:51">
+      <properties />
+
+      <testcase classname="movierental.MainControllerTests" name="testSomething" time="0.218" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="6" name="MovieTests" package="movierental" tests="1" time="1.045" timestamp="2013-03-26T05:59:51">
+      <properties />
+
+      <testcase classname="movierental.MovieTests" name="testSomething" time="0.998" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="7" name="RentedMovieControllerTests" package="movierental" tests="1" time="0.172" timestamp="2013-03-26T05:59:53">
+      <properties />
+
+      <testcase classname="movierental.RentedMovieControllerTests" name="testSomething" time="0.0" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="8" name="RentedMovieTests" package="movierental" tests="1" time="0.218" timestamp="2013-03-26T05:59:53">
+      <properties />
+
+      <testcase classname="movierental.RentedMovieTests" name="testSomething" time="0.109" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="9" name="RequestTests" package="movierental" tests="1" time="0.218" timestamp="2013-03-26T05:59:53">
+      <properties />
+
+      <testcase classname="movierental.RequestTests" name="testSomething" time="0.094" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="10" name="TransactionTests" package="movierental" tests="1" time="0.281" timestamp="2013-03-26T05:59:53">
+      <properties />
+
+      <testcase classname="movierental.TransactionTests" name="testSomething" time="0.125" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Ken-PC" id="11" name="UserControllerTests" package="movierental" tests="1" time="0.281" timestamp="2013-03-26T05:59:53">
+      <properties />
+
+      <testcase classname="movierental.UserControllerTests" name="testSomething" time="0.281" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

@@ -14,6 +14,9 @@
 
 </head>
 <body>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
 	
 	<div align="center" class="container">
 		<div id="example" class="modal hide fade in" style="display: none; ">
@@ -40,10 +43,6 @@
             </div>
         </div>
 	</div>
-	<div align="center">
-		<a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Add Clerk</a><br/><br/>
-	</div>
-	
 	<div align="center" class="container">
 		<div id="example1" class="modal hide fade in" style="display: none; ">
         	<div class="modal-header" align="left">
@@ -60,7 +59,7 @@
 					<br/>
 					Contact Number: <input type="text" name="contactNumber" required="true">
 					<br/>
-					Email Address:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" required="true,email">
+					Email Address:&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" required="true,email">
 					<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary btn-large" value="Submit">
 				</g:form>	        
@@ -71,51 +70,50 @@
             </div>
         </div>
 	</div>
-	<div align="center">
+	
+<section id="info">
+<div class="row-fluid">
+	<div class="span2">
+	<table>
+	
+	<tr>
+	<td><div>
+		<a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Add Clerk</a><br/><br/>
+		</div>
+	
+	<div>
 		<a data-toggle="modal" href="#example1" class="btn btn-primary btn-large">Add Customer</a><br/><br/>
 	</div>
 	
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap-modal.js"></script>
-	
-	<div align="center">
+	<div>
 		<g:form controller="main" action="searchForCustomer">
 			<input type="submit" class="btn btn-primary btn-large" value="View Customer">
 		</g:form>
 	</div>
 	
-	<%--<div align="center">
-		<g:form controller="main" action="addClerkInit">
-			<input type="submit" class="btn btn-primary btn-large" value="Add Clerk">
-		</g:form>
-	</div>--%>
-	
-	<%--<div align="center">
-		<g:form controller="main" action="addCustomerInit">
-			<input type="submit" class="btn btn-primary btn-large" value="Add Customer">
-		</g:form>
-	</div>--%>
-	
-	<div align="center">
+	<div>
 		<g:form controller="main" action="manageInventory">
 			<input type="submit" class="btn btn-primary btn-large" value="Manage Inventory">
 		</g:form>
 	</div>
-	
-	<div align="center">
+
+	<div>
 		<g:form controller="main" action="showTransactions">
 			<input type="submit" class="btn btn-primary btn-large" value="Show Transaction">
 		</g:form>
 	</div>
+	</td>
+	</tr>
 	
-	<br/><br/>
+	</table>
+	</div>
 
-	<div>
+	
+	<div class="span2">
+	<g:if test="${requests}">
+		<strong><font color="white">Customer Request:</font></strong>
 		<table width="1000">
 			
-		<g:each in="${requests}" var="request">
-			<%--<table width="900">--%>
-			<strong><font color="white">Customer Request:</font></strong>
 			<tr>
 				<th><font color="white">ID</font></th>
 				<th><font color="white">First Name</font</th>
@@ -126,6 +124,7 @@
 				<th> </th>
 				<th> </th>
 			</tr>
+		<g:each in="${requests}" var="request">
 			<tr>
 				<td><font color="white"><center>${request.id}</center></font></td>
 				<td><font color="white"><center>${request.first_name}</center></font></td>
@@ -146,11 +145,12 @@
 					</g:form>
 				</td>
 			</tr>
-			<%--</table>--%>
 		</g:each>
 		</table>
-	</div>
-	
+	</g:if>
+	</div><br/><br/><br/><br/><br/>
+</div>
+</section>
 
 
 </body>

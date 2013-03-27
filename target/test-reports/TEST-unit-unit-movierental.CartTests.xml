@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Ken-PC" name="movierental.CartTests" tests="1" time="1.514" timestamp="2013-03-26T05:59:49">
+  <properties />
+  <testcase classname="movierental.CartTests" name="testSomething" time="0.094" />
+  <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+  <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+</testsuite>

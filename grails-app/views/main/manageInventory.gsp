@@ -61,9 +61,9 @@
 						<option value="VCD">VCD</option>
 					</select>
 					<br/>
-					Rate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rate" value="50" required="true">
+					Rate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rate" value=${50} required="true">
 					<br/>
-					Overdue Rate:&nbsp;&nbsp;<input type="text" name="overdueRate" value="15" required="true">
+					Overdue Rate:&nbsp;&nbsp;<input type="text" name="overdueRate" value=${15} required="true">
 					<br/>
 					<input type="hidden" name="parameter" value="${parameter}">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -88,462 +88,19 @@
 		</g:form>
 	</div>
 	
-	<%--<div>
-		Please select genre:
-		<form controller="main" action="manageInventory">
-			<g:if test="${!parameter}">
-				<select name="parameter">
-					<option selected="selected"></option>
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Action'}">
-				<select name="parameter">
-					<option value="Action" selected="selected">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-			</select>
-			</g:if>
-			<g:if test="${parameter == 'Adventure'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure" selected="selected">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-			</select>
-			</g:if>
-			<g:if test="${parameter == 'Animation'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation" selected="selected">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-			</select>
-			</g:if>
-			<g:if test="${parameter == 'Biography'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography" selected="selected">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Comedy'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy" selected="selected">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Crime'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime" selected="selected">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Documentary'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary" selected="selected">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Drama'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama" selected="selected">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Family'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family" selected="selected">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Fantasy'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy" selected="selected">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'History'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History" selected="selected">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Horror'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror" selected="selected">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Musical'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical" selected="selected">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Romance'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance" selected="selected">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Sci-Fi'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi" selected="selected">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Sport'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport" selected="selected">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'Thriller'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller" selected="selected">Thriller</option>
-					<option value="War">War</option>
-				</select>
-			</g:if>
-			<g:if test="${parameter == 'War'}">
-				<select name="parameter">
-					<option value="Action">Action</option>
-					<option value="Adventure">Adventure</option>
-					<option value="Animation">Animation</option>
-					<option value="Biography">Biography</option>
-					<option value="Comedy">Comedy</option>
-					<option value="Crime">Crime</option>
-					<option value="Documentary">Documentary</option>
-					<option value="Drama">Drama</option>
-					<option value="Family">Family</option>
-					<option value="Fantasy">Fantasy</option>
-					<option value="History">History</option>
-					<option value="Horror">Horror</option>
-					<option value="Musical">Musical</option>
-					<option value="Musical">Musical</option>
-					<option value="Romance">Romance</option>
-					<option value="Sci-Fi">Sci-Fi</option>
-					<option value="Sport">Sport</option>
-					<option value="Thriller">Thriller</option>
-					<option value="War" selected="selected">War</option>
-				</select>
-			</g:if>
-			<input type="submit" class="btn btn-primary btn-medium" value="Change">
-		</form>
-	</div>--%>
-	
-	<div>
-		<g:form controller="main" action="index">
-			<input type="submit" class="btn btn-primary btn-small" value="Back">
-		</g:form>
-	</div>
-			
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap-modal.js"></script>
-	
 	<div align="center">
 		<g:if test="${movies}">
+			<div>
+			<table>
+				<tr>
+					<br/><br/><p class="btn-inverse" style='width:50px;'>Legend:</p>
+				</tr>
+				<tr>
+					<td bgcolor="Aquamarine"><center>GOOD</center></td>
+					<td bgcolor="Khaki"><center>DAMAGED</center></td>
+				</tr>
+			</table>
+			</div>
 			<table width="1200" border="1">
 				<tr class="btn-inverse">
 					<th width="70">Movie ID</th>
@@ -558,7 +115,6 @@
 				</tr>
 				<tr><g:each in="${movies}" var="movie">
 					<g:if test="${movie.status.equals("good")}">
-						<%--<td bgcolor="#5CB3FF"><center>${movie.id}</center></td>--%>
 						<td bgcolor="Aquamarine"><center>${movie.id}</center></td>
 						<td bgcolor="Aquamarine"><center>${movie.title}</center></td>
 						<td bgcolor="Aquamarine"><center>${movie.actor_or_actress}</center></td>
@@ -583,7 +139,6 @@
 						</td>
 					</g:if>
 					<g:else>
-						<%--<td bgcolor="#ffa85c"><center>${movie.id}</center></td>--%>
 						<td bgcolor="Khaki"><center>${movie.id}</center></td>
 						<td bgcolor="Khaki"><center>${movie.title}</center></td>
 						<td bgcolor="Khaki"><center>${movie.actor_or_actress}</center></td>
@@ -607,23 +162,22 @@
 							</g:form>	
 						</td>
 					</g:else>
-					</tr>	
-					
-				
+					</tr>
 				</g:each>
 			</g:if>
 			</table>
-	</div><br/><br/>
+	</div>
+	
 	
 	<div>
-		<p class="btn-inverse" style='width:50px;'>Legend:</p>
-		<table>
-			<tr>
-				<td bgcolor="Aquamarine"><center>GOOD</center></td>
-				<td bgcolor="Khaki"><center>DAMAGED</center></td>
-			</tr>
-		</table>
-	</div>
+		<g:form controller="main" action="index">
+			<input type="submit" class="btn btn-primary btn-small" value="Back">
+		</g:form>
+	</div><br/><br/><br/><br/><br/><br/><br/>
+			
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	
 	
 </body>
 </html>

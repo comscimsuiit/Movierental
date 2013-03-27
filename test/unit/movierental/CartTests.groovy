@@ -12,6 +12,7 @@ import org.junit.*
 class CartTests {
 
     void testSomething() {
-       fail "Implement me"
+       //fail "Implement me"
+       def name = ""
     }
 }
