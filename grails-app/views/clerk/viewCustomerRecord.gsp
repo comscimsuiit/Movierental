@@ -1,29 +1,11 @@
 <html>
 <head>
-	<meta name="layout" content="clerk" />
 	<title>View Customer's Record</title>
-	
-	<style type="text/css">
-		body {
-			background-image: url("../images/img/tile.jpg");
-		}
-	</style>
-	
 </head>
 <body>
-	
-	<g:if test="${!movies}">
-		<div align="center"><font color="white">NO MOVIES RENTED!<font><div>
-		<div>
-		<g:form controller="clerk" action="searchForCustomerRecord">
-			<%--<center><input type="submit" disable="disable" class="btn btn-primary btn-small" value="Return Movie"></centers>--%>
-		</g:form>
-	</div>
-	</g:if>
-	<g:else>
 	<g:set var="total" value="${0}" />
-	<div align="center">
-		<table width="900" class="btn-inverse" style='width:900px;'>
+	<div>
+		<table border="1">
 			<tr>
 				<th>Movie ID</th>
 				<th>Title</th>
@@ -35,42 +17,34 @@
 			</tr>
 			<tr>
 				<g:form controller="clerk" action="clearLiability">
+				<input type="hidden" name="id" value="${id}">
 				<g:each in="${movies}" var="movie">
-						<td><center>${movie.id}</center></td>
-						<td><center>${movie.title}</center></td>
-						<td><center>${movie.genre}</center></td>
-						<td><center>${movie.actor_or_actress}</center></td>
-						<td><center>${movie.director}</center></td>
-						<td><center>${movie.medium}</center></td>
+						<td>${movie.id}</td>
+						<td>${movie.title}</td>
+						<td>${movie.genre}</td>
+						<td>${movie.actor_or_actress}</td>
+						<td>${movie.director}</td>
+						<td>${movie.medium}</td>
 						<g:if test="${now.minus(movie.due_date) > 0}">
 							<g:set var="overDue" value="${now.minus(movie.due_date) * movie.overdue_rate}" />
 							
-							<td><center>${overDue}</center></td>
+							<td>${overDue}</td>
+							
 							<g:set var="total" value="${total + overDue}" />
 						</g:if>
 						<g:else>
-							<td><center>0</center></td>
+							<td>0</td>
 						</g:else>
 						<td><input type="checkbox" name="movieID" value="${movie.id}"></td>
 					<tr/>
 				</g:each>
 				
-		</table><br/>
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-		&nbsp;<font color="white">TOTAL OVERDUE FEE: ${total}</font>
-		<br/>
+		</table>
+		TOTAL OVERDUE FEE: ${total}
 		<input type="hidden" name="totalDue" value="${total}">
-		<input type="submit" class="btn btn-primary btn-large" value="Return Movie">
+		<input type="submit" value="Return Movie">
 		</g:form>
 	</div>
-	</g:else>
-	
-	<div>
-		<g:form controller="clerk" action="searchForCustomerRecord2">
-			<input type="submit" class="btn btn-primary btn-small" value="Back">
-		</g:form>
-	</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	
 	
 </body>

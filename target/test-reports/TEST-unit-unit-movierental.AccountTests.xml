@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Budoy" name="movierental.AccountTests" tests="1" time="0.767" timestamp="2013-03-25T05:38:46">
+  <properties />
+  <testcase classname="movierental.AccountTests" name="testSomething" time="0.621" />
+  <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+  <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+</testsuite>

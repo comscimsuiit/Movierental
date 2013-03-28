@@ -1,42 +1,33 @@
 <html>
 <head>
-	<meta name="layout" content="clerk" />
 	<title>View Customer's Ledger</title>
-	
-	<style type="text/css">
-		body {
-			background-image: url("../images/img/tile.jpg");
-		}
-	</style>
-	
 </head>
 <body>
 	
-	<strong>
-	<div align="left">
-		<font color="white">Customer ID: ${info.id}</font>
+	<div>
+		ID Number: ${info.id}
 		<br/>
-		<font color="white">First Name: ${info.first_name}</font>
+		First Name: ${info.first_name}
 		<br/>
-		<font color="white">Last Name: ${info.last_name}</font>
+		Last Name: ${info.last_name}
 		<br/>
-		<font color="white">Address: ${info.address}</font>
+		Address: ${info.address}
 		<br/>
-		<font color="white">Contact Number: ${info.contact_number}</font>
+		Contact Number: ${info.contact_number}
 		<br/>
-		<font color="white">Email Address: ${info.email}</font>
+		Email Address: ${info.email}
+		
 	</div>
-	</strong>
 	
 	<br/>
 	<br/>
 	<br/>
 	
-	<div align="center">
+	<div>
 		<g:if test="${liabilities}">
-			<font color="white"><strong>Pending Liabilities:</strong></font>
+			Pending Liabilities:
 			
-			<table border="1" width="600" class="btn-inverse" style='width:600px;'>
+			<table border="1">
 				<tr>
 					<th>Movie ID</th>
 					<th>Title</th>
@@ -55,33 +46,28 @@
 			</table>
 			
 			<bold>
-				<font color="white">The client still has a liability, he/she can't rent another movie/s for the moment.</font>
+				The client still has a liability, he/she can't rent another movie/s for the moment.
 			</bold>
 			
 			<g:form controller="clerk" action="selectMovie">
 				<input type="hidden" name="id" value="${info.id}">
 				<input type="submit" value="Proceed" disabled="disabled">
 			</g:form>
-			<!--<g:form controller="clerk" action="index">
+			<g:form controller="clerk" action="index">
 				<input type="submit" value="Home">
-			</g:form>-->
+			</g:form>
 		</g:if>
 		
 		<g:else>
-			<font color="white">There are no pending liabilities.</font>
+			There are no pending liabilities.
 			
 			<g:form controller="clerk" action="selectMovie">
 			<input type="hidden" name="id" value="${info.id}">
-			<input type="submit" class="btn btn-primary btn-large" value="Proceed">
+			<input type="submit" value="Proceed">
 		</g:form>
 		</g:else>
 	</div>
 	
-	<div>
-		<g:form controller="clerk" action="searchForCustomer">
-			<input type="submit" class="btn btn-primary btn-small" value="Back">
-		</g:form>
-	</div>
 	
 </body>
 </html>
