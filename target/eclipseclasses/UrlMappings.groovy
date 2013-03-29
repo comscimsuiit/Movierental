@@ -1,6 +1,7 @@
 class UrlMappings {
 
 	static mappings = {
+<<<<<<< HEAD
 		
 		/* 
 		 * Pages without controller 
@@ -38,5 +39,15 @@ class UrlMappings {
 		"503"	(view:'/_errors/503')
 		
 		"/"(controller:'user', action:'index')
+=======
+		"/$controller/$action?/$id?"{
+			constraints {
+				// apply constraints here
+			}
+		}
+
+		"/"(view:"/index")
+		"500"(view:'/error')
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 	}
 }

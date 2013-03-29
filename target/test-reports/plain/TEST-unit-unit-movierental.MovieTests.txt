@@ -1,5 +1,9 @@
 Testsuite: movierental.MovieTests
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.045 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.395 sec
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 ------------- Standard Output ---------------
 --Output from testSomething--
 ------------- ---------------- ---------------
@@ -7,4 +11,8 @@ Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.045 sec
 --Output from testSomething--
 ------------- ---------------- ---------------
 
+<<<<<<< HEAD
 Testcase: testSomething took 0.998 sec
+=======
+Testcase: testSomething took 0.139 sec
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac

@@ -8,18 +8,23 @@ class Transaction {
 	Date date
 	double fee
 
+<<<<<<< HEAD
 
 	
     static mapping = {
     }
     
 	static constraints = {
+=======
+    static constraints = {
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		customerId(blank:false)
 		type(blank:false)
 		movieId(blank:false)
 		date(blank:false)
 		fee(blank:false)
     }
+<<<<<<< HEAD
 	
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId
@@ -61,4 +66,6 @@ class Transaction {
 		return fee
 	}
 	
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 }

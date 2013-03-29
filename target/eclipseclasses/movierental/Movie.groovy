@@ -19,6 +19,7 @@ class Movie {
 		actorOrActress(blank:false)
 		status(blank:false)
     }
+<<<<<<< HEAD
     
     public void setTitle(String title) {
     	this.title = title
@@ -83,4 +84,6 @@ class Movie {
     public double getOverdueRate() {
     	return overdueRate
     }
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 }

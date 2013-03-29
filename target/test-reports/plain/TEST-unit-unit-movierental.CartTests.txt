@@ -1,5 +1,9 @@
 Testsuite: movierental.CartTests
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.514 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.438 sec
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 ------------- Standard Output ---------------
 --Output from testSomething--
 ------------- ---------------- ---------------
@@ -7,4 +11,8 @@ Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 1.514 sec
 --Output from testSomething--
 ------------- ---------------- ---------------
 
+<<<<<<< HEAD
 Testcase: testSomething took 0.094 sec
+=======
+Testcase: testSomething took 0.194 sec
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac

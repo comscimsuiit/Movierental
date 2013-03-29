@@ -9,6 +9,7 @@ class Cart {
 		customerId(blank:false)
 		movieId(blank:false)
     }
+<<<<<<< HEAD
     
     public void setCustomerId(String customerId) {
     	this.customerId = customerId
@@ -25,4 +26,6 @@ class Cart {
     public String getMovieId() {
     	return movieId
     }
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 }

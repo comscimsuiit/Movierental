@@ -10,6 +10,7 @@ import org.junit.*
  */
 @TestFor(Movie)
 class MovieTests {
+<<<<<<< HEAD
 	
     void testSomething() {
     	//fail "Implement me"
@@ -61,5 +62,10 @@ class MovieTests {
      	Movie movie = new Movie()
     	movie.setOverDueRate("30.000")
     	assertEquals("30.00", movie.getOverDueRate())
+=======
+
+    void testSomething() {
+       //fail "Implement me"
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
     }
 }

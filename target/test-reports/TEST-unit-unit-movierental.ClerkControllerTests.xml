@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite errors="0" failures="0" hostname="Ken-PC" name="movierental.ClerkControllerTests" tests="1" time="0.484" timestamp="2013-03-26T05:59:50">
   <properties />
   <testcase classname="movierental.ClerkControllerTests" name="testSomething" time="0.328" />
+=======
+<testsuite errors="0" failures="0" hostname="Budoy" name="movierental.ClerkControllerTests" tests="1" time="0.56" timestamp="2013-03-25T05:38:47">
+  <properties />
+  <testcase classname="movierental.ClerkControllerTests" name="testSomething" time="0.395" />
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
   <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
   <system-err><![CDATA[--Output from testSomething--

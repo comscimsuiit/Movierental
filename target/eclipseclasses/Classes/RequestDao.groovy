@@ -18,6 +18,7 @@ import movierental.Request
 		
 	}
 	
+<<<<<<< HEAD
 	def getExistingIds() {
 		def db = new Sql(dataSource)
 		def result = db.rows("Select id from request")
@@ -41,4 +42,6 @@ import movierental.Request
 		db.execute("delete from request where id='${id}'")
 	}
 	
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 }

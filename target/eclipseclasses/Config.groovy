@@ -89,5 +89,8 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+<<<<<<< HEAD
 
 grails.config.defaults.locations = [KickstartResources]
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac

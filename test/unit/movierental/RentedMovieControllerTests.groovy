@@ -8,12 +8,17 @@ import org.junit.*
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
+<<<<<<< HEAD
 //@TestFor(RentedMovieController)
+=======
+@TestFor(RentedMovieController)
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 class RentedMovieControllerTests {
 
     void testSomething() {
        //fail "Implement me"
     }
+<<<<<<< HEAD
     
     void customerIdTest() {
     	RentedMovie rentedMovie = new RentedMovie()
@@ -33,4 +38,6 @@ class RentedMovieControllerTests {
     	movie.setDueDateId(now)
     	assertEquals(now, movie.getDueDate())
     }
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 }

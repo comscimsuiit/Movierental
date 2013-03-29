@@ -15,6 +15,7 @@ class Customer {
 		contactNumber(blank:false)
 		email()
     }
+<<<<<<< HEAD
     
     public void setFirstName(String firstName) {
     	this.firstName = firstName
@@ -55,4 +56,6 @@ class Customer {
     public String getEmail() {
     	return email
     }
+=======
+>>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 }
