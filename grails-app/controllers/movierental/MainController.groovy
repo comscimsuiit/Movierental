@@ -62,7 +62,6 @@ class MainController {
 				index();
 				break
 		}
-		
 	}
 	
 	def addCustomerInit() {
@@ -198,44 +197,6 @@ class MainController {
 		
 	}
 	
-	def showTransactions() {
-		def db = new Sql(dataSource)
-	    def parameter = params.parameter
-		Date now = new Date()
-		
-		switch(parameter) {
-			case null:
-				def resultByDay = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id) where date='${now.format('MM/dd/yyyy')}'""");
-				render(view:"showTransactions",model:[transactions:resultByDay,parameter:parameter]);
-				break;
-			case "daily":
-				def resultByDay = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id) where date='${now.format('MM/dd/yyyy')}'""");
-				render(view:"showTransactions",model:[transactions:resultByDay,parameter:parameter]);
-				break;
-			case "weekly":
-				def result = db.rows("select cast(date_trunc('week', current_date) as date) + i from generate_series(0,6) i");
-				def startOfWeek = result.get(0).get("?column?")
-				def resultByWeek = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on
-									a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id)
-									where date='${startOfWeek}' or date='${startOfWeek.plus(1)}' or date='${startOfWeek.plus(2)}'
-									or date='${startOfWeek.plus(3)}' or date='${startOfWeek.plus(4)}' or date='${startOfWeek.plus(5)}'
-									or date='${startOfWeek.plus(6)}'""");
-				render(view:"showTransactions",model:[transactions:resultByWeek,parameter:parameter]);
-				break;
-			case "yearly":
-				def resultByYear = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on 
-											a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id)""")
-				render(view:"showTransactions",model:[transactions:resultByYear,parameter:parameter]);
-				break;
-			default:
-				showTransactions()
-				break;
-		}
-		
-		
-		
-		
-	}
 	
 	
 }

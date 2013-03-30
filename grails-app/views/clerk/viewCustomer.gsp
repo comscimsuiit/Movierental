@@ -4,8 +4,9 @@
 </head>
 <body>
 	
-	<div>
-		ID Number: ${info.id}
+	<strong>
+	<div align="left">
+		Customer ID: ${info.id}
 		<br/>
 		First Name: ${info.first_name}
 		<br/>
@@ -18,16 +19,17 @@
 		Email Address: ${info.email}
 		
 	</div>
+	</strong>
 	
 	<br/>
 	<br/>
 	<br/>
 	
-	<div>
+	<div align="center">
 		<g:if test="${liabilities}">
-			Pending Liabilities:
+			<strong>Pending Liabilities:</strong>
 			
-			<table border="1">
+			<table border="1" width="600">
 				<tr>
 					<th>Movie ID</th>
 					<th>Title</th>
@@ -53,9 +55,9 @@
 				<input type="hidden" name="id" value="${info.id}">
 				<input type="submit" value="Proceed" disabled="disabled">
 			</g:form>
-			<g:form controller="clerk" action="index">
+			<!--<g:form controller="clerk" action="index">
 				<input type="submit" value="Home">
-			</g:form>
+			</g:form>-->
 		</g:if>
 		
 		<g:else>
@@ -63,11 +65,16 @@
 			
 			<g:form controller="clerk" action="selectMovie">
 			<input type="hidden" name="id" value="${info.id}">
-			<input type="submit" value="Proceed">
+			<input type="submit" class="btn btn-primary btn-large" value="Proceed">
 		</g:form>
 		</g:else>
 	</div>
 	
+	<div>
+		<g:form controller="clerk" action="searchForCustomer">
+			<input type="submit" class="btn btn-primary btn-small" value="Back">
+		</g:form>
+	</div>
 	
 </body>
 </html>
