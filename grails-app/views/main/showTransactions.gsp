@@ -15,7 +15,7 @@
 </head>
 <body>
 	<g:set var="total" value="${0}" />
-	<div>
+	<div align="center">
 		<font color="white">Please select:</font>
 		<form controller="main" action="showTransactions">
 			<g:if test="${!parameter}">
@@ -68,7 +68,7 @@
 		</g:form>
 	</div>
 	
-	<div>
+	<div align="center">
 		<table border="1">
 				<tr>
 					<th></th>

@@ -19,13 +19,13 @@
 		</g:form>
 	</div>
 	
-	<%--<div align="center">
+	<div align="center">
+	<g:if test="${infos}">
 		<table width="400px">
-			<tr>
-				<th><font color="white">First Name</font></th>
-				<th><font color="white">Last Name</font></th>
-			</tr>
-			
+				<tr>
+					<th><font color="white">First Name</font></th>
+					<th><font color="white">Last Name</font></th>
+				</tr>
 			<g:each in="${infos}" var="${info}">
 				<tr>
 					<td><font color="white"><center>${info.first_name}</center></font></td>
@@ -39,7 +39,8 @@
 				</tr>
 			</g:each>
 		</table>
-	</div>--%>
+	</g:if>
+	</div>
 	
 	<div>
 		<g:form controller="main" action="index">

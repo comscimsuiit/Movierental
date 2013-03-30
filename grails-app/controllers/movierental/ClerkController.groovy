@@ -38,7 +38,12 @@ class ClerkController {
 		
 		def customerExistingIds = db.rows("select id from customer")
 		def requestExistingIds = db.rows("select id from request")
+		def customerExistingFirstname = db.rows("select first_name from customer")
+		def customerExistingLastname = db.rows("select last_name from customer")
 		
+		if(customerExistingFirstname.first_name.contains(firstName) && customerExistingLastname.last_name.contains(lastName)) {
+			render(view:'customerExists')
+		}else {
 		while(customerExistingIds.id.contains(idNumber) && requestExistingIds.id.contains(idNumber)) {
 			idCode = (String) random.nextInt(9000) + 1000
 			idNumber = date+"-"+idCode
@@ -48,7 +53,7 @@ class ClerkController {
 					values('${idNumber}','${address}','${contactNumber}','${firstName}','${lastName}','${email}')""")
 		
 		index()
-					
+			}	
 	}
 	
 	
@@ -70,6 +75,25 @@ class ClerkController {
 
 	}
 	
+	def searchForCustomer2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"checkCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"checkCustomer2",model:[infos:result,parameter:parameter])
+
+	}
+	
 	def viewCustomer() {
 		def db = new Sql(dataSource)
 		def id = params.id
@@ -83,26 +107,22 @@ class ClerkController {
 		def db = new Sql(dataSource)
 		def parameter = params.parameter
 		def id = params.id
+		def counter = db.rows("select count (*) from cart where customer_id='${id}'")
 		def result
 		def result2 = db.rows("""select * from ((select * from cart where customer_id='${id}') as c join (select * from movie) as m on c.movie_id=m.id)""")
 		
-		if(!parameter) {
-			result = db.rows("""select * from ((((select id from movie) except (select movie_id from rented_movie)) except (select movie_id from cart where
-						customer_id='${id}')) as a join (select * from movie) as b on a.id=b.id) as a where status='good' order by title asc""")
-			render(view:"selectMovie",model:[id:id,movies:result,carts:result2])
-		}
 		
-		else{
 			String query = """select * from (select * from (select * from ((((select id from movie) except (select movie_id from rented_movie))
 								except (select movie_id from cart)) as a join (select * from movie) as b on a.id=b.id) as a where status='good')
 								as a where director ilike '%${parameter}%' or genre ilike '%${parameter}%' or title ilike '%${parameter}%' or medium ilike '%${parameter}%' or actor_or_actress	ilike '%${parameter}%') as a order by a.title asc"""
 			result = db.rows(query)
-			render(view:"selectMovie",model:[id:id,movies:result,parameter:parameter,carts:result2])
-		}
+			render(view:"selectMovie",model:[id:id,movies:result,parameter:parameter,carts:result2,counter:counter.get(0).count])
+	
 		//render(view:"selectMovie")
 	}
 	
 	def addToCart() {
+
 		def db = new Sql(dataSource)
 		def id = params.id
 		def parameter = params.parameter
@@ -110,6 +130,8 @@ class ClerkController {
 		
 		db.execute("insert into cart(customer_id,movie_id) values('${id}','${movieId}')")
 		redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
+		
+		
 	}
 	
 	def deleteFromCart() {
@@ -161,7 +183,7 @@ class ClerkController {
 		
 		if(!parameter) {
 			result = db.rows("select id,first_name,last_name from customer order by first_name asc")
-			}
+		}
 		
 		else {
 			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
@@ -169,6 +191,24 @@ class ClerkController {
 			result = db.rows(query)
 			}
 		render(view:"searchCustomer",model:[infos:result,parameter:parameter])
+	}
+	
+	def searchForCustomerRecord2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"searchCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"searchCustomer2",model:[infos:result,parameter:parameter])
 	}
 	
 	def viewCustomerRecord() {

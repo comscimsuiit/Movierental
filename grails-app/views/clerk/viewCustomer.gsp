@@ -68,7 +68,7 @@
 		</g:if>
 		
 		<g:else>
-			There are no pending liabilities.
+			<font color="white">There are no pending liabilities.</font>
 			
 			<g:form controller="clerk" action="selectMovie">
 			<input type="hidden" name="id" value="${info.id}">

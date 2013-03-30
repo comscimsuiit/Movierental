@@ -8,7 +8,7 @@
 <g:if test="${!movies}">
 	<style type="text/css">
 		body {
-			background-color: #000000;
+			background-image: url("../images/img/tile.jpg");
 		}
 	</style>
 	<center><h1><font color="white">No movies are added to the cart.</font></h1></center><br/><br/><br/>

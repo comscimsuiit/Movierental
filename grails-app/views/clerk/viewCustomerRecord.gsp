@@ -67,10 +67,10 @@
 	</g:else>
 	
 	<div>
-		<g:form controller="clerk" action="searchForCustomerRecord">
+		<g:form controller="clerk" action="searchForCustomerRecord2">
 			<input type="submit" class="btn btn-primary btn-small" value="Back">
 		</g:form>
-	</div><br/><br/><br/><br/><br/><br/>
+	</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	
 	
 </body>

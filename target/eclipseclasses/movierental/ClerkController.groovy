@@ -70,6 +70,25 @@ class ClerkController {
 
 	}
 	
+	def searchForCustomer2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"checkCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"checkCustomer2",model:[infos:result,parameter:parameter])
+
+	}
+	
 	def viewCustomer() {
 		def db = new Sql(dataSource)
 		def id = params.id
@@ -99,6 +118,7 @@ class ClerkController {
 			result = db.rows(query)
 			render(view:"selectMovie",model:[id:id,movies:result,parameter:parameter,carts:result2])
 		}
+		//render(view:"selectMovie")
 	}
 	
 	def addToCart() {
@@ -106,10 +126,10 @@ class ClerkController {
 		def id = params.id
 		def parameter = params.parameter
 		def movieId = params.movieId
-		
-		
-		db.execute("insert into cart(customer_id,movie_id) values('${id}','${movieId}')")
-		redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
+		for(int i=0; i < 4; i++) {
+			db.execute("insert into cart(customer_id,movie_id) values('${id}','${movieId}')")
+			redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
+		}
 		
 	}
 	
@@ -121,7 +141,6 @@ class ClerkController {
 		
 		db.execute("delete from cart where customer_id='${id}' and movie_id='${movieId}'")
 		redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
-		
 	}
 	
 	def saveTransaction() {
@@ -147,6 +166,8 @@ class ClerkController {
 			db.execute("insert into transaction(customer_id,date,fee,movie_id,type) values('${id}','${now.format('MM/dd/yyyy')}','${it.rate}','${it.movie_id}','check out')")
 		}
 		
+		rentedMovies = db.rows("""select * from ((select * from movie) as a join (select movie_id from rented_movie where customer_id='${id}') as b on
+							a.id=b.movie_id)""")
 		
 		db.execute("delete from cart")
 		render(view:'saveTransaction',model:[currentDate:dateFormat,info:info.get(0),movies:rentedMovies,dueFormat:dueFormat])
@@ -161,7 +182,7 @@ class ClerkController {
 		
 		if(!parameter) {
 			result = db.rows("select id,first_name,last_name from customer order by first_name asc")
-			}
+		}
 		
 		else {
 			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
@@ -169,6 +190,24 @@ class ClerkController {
 			result = db.rows(query)
 			}
 		render(view:"searchCustomer",model:[infos:result,parameter:parameter])
+	}
+	
+	def searchForCustomerRecord2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"searchCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"searchCustomer2",model:[infos:result,parameter:parameter])
 	}
 	
 	def viewCustomerRecord() {
@@ -186,12 +225,14 @@ class ClerkController {
 		def id = params.id
 		def now = new Date()
 		List<String> movieID = [params.movieID].flatten()
+		
 		def totalDue = params.totalDue
 		def overdueRate
 		def dueDate
 		double daysPassed
 		double fee
 		
+		try{
 		movieID.each{
 			overdueRate = db.rows("select overdue_rate from movie where id='${it}'")
 			dueDate = db.rows("select due_date from rented_movie where movie_id='${it}'")
@@ -204,6 +245,10 @@ class ClerkController {
 			}
 			db.execute("""insert into transaction(customer_id,date,fee,movie_id,type) values('${id}','${now.format('MM/dd/yyyy')}','${fee}','${it}','check in')""")
 			db.execute("delete from rented_movie where movie_id='${it}'")
+		}
+		}
+		catch(Exception e) {
+			index()
 		}
 		
 		index()

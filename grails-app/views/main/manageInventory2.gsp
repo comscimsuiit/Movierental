@@ -87,18 +87,23 @@
 			<input type="submit" class="btn btn-primary btn-small" value="Search" autocomplete="on">
 		</g:form>
 	</div>
-	
-	<div>
-		<g:form controller="main" action="index">
-			<input type="submit" class="btn btn-primary btn-small" value="Back">
-		</g:form>
-	</div><br/><br/><br/><br/><br/><br/><br/>
 			
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap-modal.js"></script>
 	
-	<%--<div align="center">
+	<div align="center">
 		<g:if test="${movies}">
+			<div>
+			<table>
+				<tr>
+					<br/><br/><p class="btn-inverse" style='width:50px;'>Legend:</p>
+				</tr>
+				<tr>
+					<td bgcolor="Aquamarine"><center>GOOD</center></td>
+					<td bgcolor="Khaki"><center>DAMAGED</center></td>
+				</tr>
+			</table>
+			</div>
 			<table width="1200" border="1">
 				<tr class="btn-inverse">
 					<th width="70">Movie ID</th>
@@ -160,13 +165,20 @@
 							</g:form>	
 						</td>
 					</g:else>
-					</tr>	
+					</tr>
 				</g:each>
 			</g:if>
 			</table>
-	</div><br/><br/>
+	</div>
 	
-	<div>
+	<br/><div>
+		<g:form controller="main" action="index">
+			<input type="submit" class="btn btn-primary btn-small" value="Back">
+		</g:form>
+	</div><br/><br/><br/><br/><br/><br/><br/>
+	
+	
+	<%--<div>
 		<p class="btn-inverse" style='width:50px;'>Legend:</p>
 		<table>
 			<tr>
@@ -175,6 +187,7 @@
 			</tr>
 		</table>
 	</div>--%>
+	
 	
 </body>
 </html>

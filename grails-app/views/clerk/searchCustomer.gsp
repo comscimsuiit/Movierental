@@ -13,13 +13,13 @@
 <body>
 	
 	<div align="center">
-		<g:form controller="clerk" action="searchForCustomerRecord" class="form-search">
+		<g:form controller="clerk" action="searchForCustomerRecord2" class="form-search">
 			<input type="text" placeholder="Search Customer" name="parameter" value="${parameter}" class="input-medium search-query icon-search">
 			<input type="submit" class="btn btn-primary btn-small" value="Search">
 		</g:form>
 	</div>
 	
-	<div align="center">
+	<%--<div align="center">
 		<table width="400">
 			<tr>
 				
@@ -41,13 +41,13 @@
 				</tr>
 			</g:each>
 		</table>
-	</div>
+	</div>--%>
 	
 	<div>
 		<g:form controller="clerk" action="index">
 			<input type="submit" class="btn btn-primary btn-small" value="Back">
 		</g:form>		
-	</div><br/><br/><br/><br/><br/><br/>
+	</div><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	
 </body>
 </html>

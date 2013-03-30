@@ -132,7 +132,27 @@ class MainController {
 		render(view:"manageInventory",model:[movies:movies,parameter:parameter])
 		
 	
-	} 
+	}
+	
+	def manageInventory2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def movies
+		
+		if(!parameter) {
+			//movies = db.rows("Select * from movie order by title asc")
+			render(view:"manageInventory")
+		}
+		else {
+			String query = """select * from movie where director ilike '%${parameter}%' or genre ilike '%${parameter}%' or title ilike '%${parameter}%'
+							or medium ilike '%${parameter}%' or actor_or_actress ilike '%${parameter}%' order by title asc"""
+			movies = db.rows(query)
+		}
+		
+		render(view:"manageInventory2",model:[movies:movies,parameter:parameter])
+		
+	
+	}
 	
 	def addInventory() {
 		def db = new Sql(dataSource)
@@ -260,5 +280,49 @@ class MainController {
 				showTransactions()
 				break;
 		}
+	}
+	
+	def searchForCustomer() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"checkCustomer",model:[infos:result,parameter:parameter])
+	}
+	
+	def searchForCustomer2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"checkCustomer2")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"checkCustomer2",model:[infos:result,parameter:parameter])
+	}
+	
+	def viewCustomer() {
+		def db = new Sql(dataSource)
+		def id = params.id
+		def result = db.rows("select * from customer where id='${id}'")
+		def liabilities = db.rows("""select * from ((select * from rented_movie where customer_id='${id}') as a join (select * from movie) as b on
+							a.movie_id=b.id)""")
+		render(view:"viewCustomer",model:[info:result.get(0),liabilities:liabilities])
 	}
 }

@@ -44,7 +44,7 @@
 					<br/>
 					Contact number: <input type="text" name="contactNumber" required="true">	
 					<br/>
-					Email Address: &nbsp;&nbsp;&nbsp;<input type="text" name="email" required="true">
+					Email Address: &nbsp;&nbsp;&nbsp;<input type="email" name="email" required="true">
 					<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary btn-large" value="Add Customer">
 				</g:form>		        

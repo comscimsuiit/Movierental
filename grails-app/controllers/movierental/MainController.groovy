@@ -52,7 +52,15 @@ class MainController {
 		def userName = params.userName
 		def password1 = params.password1
 		def password2 = params.password2
+		def clerkExistingUsername = db.rows("select user_name from account")
+		def clerkExistingPassword = db.rows("select password from account")
+		def clerkExistingFullname = db.rows("select full_name from account")
 		
+		if(clerkExistingUsername.user_name.contains(userName) && clerkExistingPassword.password.contains(password1)) {
+			render(view:'usernameAndPasswordExists')
+		}else if(clerkExistingFullname.full_name.contains(fullName)) {
+			render(view:'clerkExists')
+		}else {
 		switch(password1) {
 			case password2:
 				db.execute("""insert into account(full_name,user_name,password,role) values('${fullName}','${userName}','${password1}','clerk')""");
@@ -61,6 +69,7 @@ class MainController {
 			default:
 				index();
 				break
+		}
 		}
 	}
 	
@@ -88,31 +97,24 @@ class MainController {
 		def db = new Sql(dataSource)
 		def customerExistingIds = db.rows("select id from customer")
 		def requestExistingIds = db.rows("select id from request")
+		def customerExistingFirstname = db.rows("select first_name from customer")
+		def customerExistingLastname = db.rows("select last_name from customer")
 		
+		if(customerExistingFirstname.first_name.contains(firstName) && customerExistingLastname.last_name.contains(lastName)) {
+			render(view:"customerExists")
+		}else {
 		while(customerExistingIds.id.contains(idNumber) && requestExistingIds.id.contains(idNumber)) {
 			idCode = (String) random.nextInt(9000) + 1000
 			idNumber = date+"-"+idCode
 		}
 		
-		switch(firstName) {
-			case " ":
-				db.execute(""" select * from customer """)
-				index();
-				break
-			case firstName:
-				db.execute("""insert into customer(id,address,contact_number,first_name,last_name,email) values('${idNumber}','${address}','${contactNumber}','${firstName}','${lastName}','${email}')""")
-				index();
-				break
-			default:
-				index();
-				break
-		}
 		
-		//db.execute("""insert into customer(id,address,contact_number,first_name,last_name,email) 
-					//values('${idNumber}','${address}','${contactNumber}','${firstName}','${lastName}','${email}')""")
+		
+		db.execute("""insert into customer(id,address,contact_number,first_name,last_name,email) 
+					values('${idNumber}','${address}','${contactNumber}','${firstName}','${lastName}','${email}')""")
 			
 		index()
-				
+		}
 	}
 	
 	def manageInventory() {
@@ -132,7 +134,27 @@ class MainController {
 		render(view:"manageInventory",model:[movies:movies,parameter:parameter])
 		
 	
-	} 
+	}
+	
+	def manageInventory2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def movies
+		
+		if(!parameter) {
+			//movies = db.rows("Select * from movie order by title asc")
+			render(view:"manageInventory")
+		}
+		else {
+			String query = """select * from movie where director ilike '%${parameter}%' or genre ilike '%${parameter}%' or title ilike '%${parameter}%'
+							or medium ilike '%${parameter}%' or actor_or_actress ilike '%${parameter}%' order by title asc"""
+			movies = db.rows(query)
+		}
+		
+		render(view:"manageInventory2",model:[movies:movies,parameter:parameter])
+		
+	
+	}
 	
 	def addInventory() {
 		def db = new Sql(dataSource)
@@ -277,6 +299,24 @@ class MainController {
 			result = db.rows(query)
 			}
 		render(view:"checkCustomer",model:[infos:result,parameter:parameter])
+	}
+	
+	def searchForCustomer2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			redirect(controller:"main", action:"searchForCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"checkCustomer2",model:[infos:result,parameter:parameter])
 	}
 	
 	def viewCustomer() {
