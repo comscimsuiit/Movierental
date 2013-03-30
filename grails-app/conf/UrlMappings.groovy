@@ -37,5 +37,6 @@ class UrlMappings {
 		"500"	(view:'/_errors/error')
 		"503"	(view:'/_errors/503')
 		
+		"/"(controller:'user', action:'index')
 	}
 }

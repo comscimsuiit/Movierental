@@ -9,8 +9,8 @@
 			</a>
 
 			<%--<a class="brand" href="${createLink(uri: '/')}">--%>
-			<a class="brand" href="http://localhost:8080/MovieRental/user/index">
-				<img class="logo" src="${resource(plugin: 'kickstart-with-bootstrap', dir:'kickstart/img',file:'grails.png')}" alt="${meta(name:'app.name')}" />
+			<a class="brand" href="http://localhost:8080/MovieRental/">
+				<img class="logo" src="${resource(plugin: 'kickstart-with-bootstrap', dir:'kickstart/img',file:'DVD.png')}" alt="${meta(name:'app.name')}" color="pink"/>
 				${meta(name:'app.name')}
 				<%--<small> v${meta(name:'app.version')}</small>--%>
 			</a>

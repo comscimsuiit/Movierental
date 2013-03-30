@@ -10,7 +10,7 @@
     <meta name="description"	content="">
     <meta name="author"			content="">
     
-	<link rel="shortcut icon"		href="${resource(plugin: 'kickstart-with-bootstrap', dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+	<link rel="shortcut icon"		href="${resource(plugin: 'kickstart-with-bootstrap', dir:'images',file:'DVD.ico')}" type="image/x-icon" />
 	
 	<link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon.png">
     <link rel="apple-touch-icon"	href="assets/ico/apple-touch-icon-72x72.png"	sizes="72x72">
@@ -33,17 +33,17 @@
 </head>
 
 <body>
-	<g:render template="/_menu/navbaradmin"/>														
+	<g:render template="/_menu/navbaradmin"/><br/><br/><br/><br/><br/><br/><br/>														
 
 	<!-- Enable to overwrite Header by individual page -->
 	<g:if test="${ pageProperty(name:'page.header') }">
    		<g:pageProperty name="page.header" />
 	</g:if>
-	<g:else>
+	<%--<g:else>
 		<g:render template="/layouts/header"/>														
-	</g:else>
+	</g:else>--%>
 
-	<g:render template="/layouts/content"/>														
+	<g:render template="/layouts/content"/><br/><br/><br/>													
 
 	<!-- Enable to overwrite Footer by individual page -->
 	<g:if test="${ pageProperty(name:'page.footer') }">

@@ -24,11 +24,11 @@ class UserController {
 		def accountPassword = db.rows("select password from account")
     	
     	if(paramusername == hash_username && parampassword == hash_password){
-    		flash.message = "Login succeed. Login as admin."
+    		//flash.message = "Login succeed. Login as admin."
     		session.user = "admin"
     		redirect(controller:"main", action:"index")
     	}else if(accountUsername.user_name.contains(paramusername) && accountPassword.password.contains(parampassword)){
-    		flash.message = "Login succeed. Login as clerk."
+    		//flash.message = "Login succeed. Login as clerk."
     		session.user = "clerk"
     		redirect(controller:"clerk", action:"index")
     	}else{

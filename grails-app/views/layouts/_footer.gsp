@@ -1,6 +1,6 @@
 <footer class="footer">
-	<div class="container">
-		<div class="row">
+	<div class=" navbar navbar-inverse navbar-fixed-bottom">
+		<div class=" navbar-inner" style='min-height:60px; width:1350px;'>
 			<%--<div class="span2">
 				<h4>Product</h4>
 				<ul class="unstyled">
@@ -57,7 +57,9 @@
 		assume any legal liability or responsibility for the accuracy, completeness, or usefulness of any information,
 		apparatus, product, or process disclosed.
 		</p>--%>
-	
+		<div align="left" class="btn-inverse">
+				<em>&copy; Powered by MovieRental</em>
+		</div>
 		<p class="pull-right"><a href="#">Back to top</a></p>
 	</div>
 </footer>

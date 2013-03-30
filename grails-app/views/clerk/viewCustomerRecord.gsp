@@ -1,11 +1,29 @@
 <html>
 <head>
+	<meta name="layout" content="clerk" />
 	<title>View Customer's Record</title>
+	
+	<style type="text/css">
+		body {
+			background-image: url("../images/img/tile.jpg");
+		}
+	</style>
+	
 </head>
 <body>
+	
+	<g:if test="${!movies}">
+		<div align="center"><font color="white">NO MOVIES RENTED!<font><div>
+		<div>
+		<g:form controller="clerk" action="searchForCustomerRecord">
+			<%--<center><input type="submit" disable="disable" class="btn btn-primary btn-small" value="Return Movie"></centers>--%>
+		</g:form>
+	</div>
+	</g:if>
+	<g:else>
 	<g:set var="total" value="${0}" />
 	<div align="center">
-		<table width="900">
+		<table width="900" class="btn-inverse" style='width:900px;'>
 			<tr>
 				<th>Movie ID</th>
 				<th>Title</th>
@@ -38,20 +56,21 @@
 				</g:each>
 				
 		</table><br/>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-		&nbsp;TOTAL OVERDUE FEE: ${total}
+		&nbsp;<font color="white">TOTAL OVERDUE FEE: ${total}</font>
 		<br/>
 		<input type="hidden" name="totalDue" value="${total}">
 		<input type="submit" class="btn btn-primary btn-large" value="Return Movie">
 		</g:form>
 	</div>
+	</g:else>
 	
 	<div>
 		<g:form controller="clerk" action="searchForCustomerRecord">
 			<input type="submit" class="btn btn-primary btn-small" value="Back">
 		</g:form>
-	</div>
+	</div><br/><br/><br/><br/><br/><br/>
 	
 	
 </body>
