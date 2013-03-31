@@ -11,6 +11,7 @@ import org.junit.*
 @TestFor(Cart)
 class CartTests {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     void testSomething() {
        //fail "Implement me"
@@ -18,8 +19,14 @@ class CartTests {
     }
 }
 =======
+=======
+
+>>>>>>> origin/master
     void testSomething() {
-       //fail "Implement me"
+       fail "Implement me"
     }
 }
+<<<<<<< HEAD
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+>>>>>>> origin/master

@@ -36,7 +36,11 @@
 			<tr>
 				<g:form controller="clerk" action="clearLiability">
 				<g:each in="${movies}" var="movie">
+<<<<<<< HEAD
 						<td><center>${movie.movie_id}</center></td>
+=======
+						<td><center>${movie.id}</center></td>
+>>>>>>> origin/master
 						<td><center>${movie.title}</center></td>
 						<td><center>${movie.genre}</center></td>
 						<td><center>${movie.actor_or_actress}</center></td>
@@ -61,14 +65,21 @@
 		&nbsp;<font color="white">TOTAL OVERDUE FEE: ${total}</font>
 		<br/>
 		<input type="hidden" name="totalDue" value="${total}">
+<<<<<<< HEAD
 		<input type="hidden" name="id" value="${id}">
+=======
+>>>>>>> origin/master
 		<input type="submit" class="btn btn-primary btn-large" value="Return Movie">
 		</g:form>
 	</div>
 	</g:else>
 	
 	<div>
+<<<<<<< HEAD
 		<g:form controller="clerk" action="searchForCustomerRecord">
+=======
+		<g:form controller="clerk" action="searchForCustomerRecord2">
+>>>>>>> origin/master
 			<input type="submit" class="btn btn-primary btn-small" value="Back">
 		</g:form>
 	</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

@@ -16,7 +16,7 @@ import org.junit.*
 class RentedMovieControllerTests {
 
     void testSomething() {
-       //fail "Implement me"
+       fail "Implement me"
     }
 <<<<<<< HEAD
     

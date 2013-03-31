@@ -12,6 +12,10 @@ import org.junit.*
 class UserControllerTests {
 
     void testSomething() {
+<<<<<<< HEAD
        //fail "Implement me"
+=======
+       fail "Implement me"
+>>>>>>> origin/master
     }
 }

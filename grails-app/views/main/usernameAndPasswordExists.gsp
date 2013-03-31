@@ -16,7 +16,11 @@
 <body>
 	
 	<div align="center">
+<<<<<<< HEAD
 		<h2><font color="white">The username you entered is already exists.</font></h2>
+=======
+		<h2><font color="white">The username and password you entered are already exists.</font></h2>
+>>>>>>> origin/master
 	</div>
 	
 	<div align="center">

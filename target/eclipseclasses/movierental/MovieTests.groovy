@@ -65,7 +65,11 @@ class MovieTests {
 =======
 
     void testSomething() {
+<<<<<<< HEAD
        //fail "Implement me"
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+       fail "Implement me"
+>>>>>>> origin/master
     }
 }

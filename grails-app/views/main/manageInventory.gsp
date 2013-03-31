@@ -61,9 +61,15 @@
 						<option value="VCD">VCD</option>
 					</select>
 					<br/>
+<<<<<<< HEAD
 					Rate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rate" value=${50} required="true">
 					<br/>
 					Overdue Rate:&nbsp;&nbsp;<input type="text" name="overdueRate" value=${15} required="true">
+=======
+					Rate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rate" value="50" required="true">
+					<br/>
+					Overdue Rate:&nbsp;&nbsp;<input type="text" name="overdueRate" value="15" required="true">
+>>>>>>> origin/master
 					<br/>
 					<input type="hidden" name="parameter" value="${parameter}">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -82,12 +88,17 @@
 	</center>
 
 	<div align="center">
+<<<<<<< HEAD
 		<g:form controller="main" action="manageInventory" class="form-search">
+=======
+		<g:form controller="main" action="manageInventory2" class="form-search">
+>>>>>>> origin/master
 			<font color="white">Search for title,director,genre,medium, actor or actress:</font> <br/><input type="text" placeholder="Search" name="parameter" value="${parameter}" class="input-medium search-query input-xlarge icon-search">
 			<input type="submit" class="btn btn-primary btn-small" value="Search" autocomplete="on">
 		</g:form>
 	</div>
 	
+<<<<<<< HEAD
 	<div align="center">
 		<g:if test="${movies}">
 			<div>
@@ -101,6 +112,19 @@
 				</tr>
 			</table>
 			</div>
+=======
+	<div>
+		<g:form controller="main" action="index">
+			<input type="submit" class="btn btn-primary btn-small" value="Back">
+		</g:form>
+	</div><br/><br/><br/><br/><br/><br/><br/>
+			
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	
+	<%--<div align="center">
+		<g:if test="${movies}">
+>>>>>>> origin/master
 			<table width="1200" border="1">
 				<tr class="btn-inverse">
 					<th width="70">Movie ID</th>
@@ -162,14 +186,19 @@
 							</g:form>	
 						</td>
 					</g:else>
+<<<<<<< HEAD
 					</tr>
+=======
+					</tr>	
+>>>>>>> origin/master
 				</g:each>
 			</g:if>
 			</table>
-	</div>
+	</div><br/><br/>
 	
 	
 	<div>
+<<<<<<< HEAD
 		<g:form controller="main" action="index">
 			<input type="submit" class="btn btn-primary btn-small" value="Back">
 		</g:form>
@@ -178,6 +207,16 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap-modal.js"></script>
 	
+=======
+		<p class="btn-inverse" style='width:50px;'>Legend:</p>
+		<table>
+			<tr>
+				<td bgcolor="Aquamarine"><center>GOOD</center></td>
+				<td bgcolor="Khaki"><center>DAMAGED</center></td>
+			</tr>
+		</table>
+	</div>--%>
+>>>>>>> origin/master
 	
 </body>
 </html>

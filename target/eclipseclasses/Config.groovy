@@ -90,7 +90,12 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 grails.config.defaults.locations = [KickstartResources]
 =======
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+
+grails.config.defaults.locations = [KickstartResources]
+>>>>>>> origin/master

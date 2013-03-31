@@ -13,6 +13,7 @@ class Account {
 		password(blank:false)
 		role(blank:false)
     }
+<<<<<<< HEAD
     
     public void setUserName(String userName) {
     	this.userName = userName
@@ -45,4 +46,6 @@ class Account {
     public String getFullName() {
     	return fullName
     }
+=======
+>>>>>>> origin/master
 }

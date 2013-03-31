@@ -15,6 +15,7 @@ class Request {
 		contactNumber(blank:false)
 		email()
     }
+<<<<<<< HEAD
     public void setFirstName(String firstName {
     	this.firstName = firstName
     }
@@ -54,5 +55,6 @@ class Request {
     public String getEmail(){
         return email
     }
+=======
+>>>>>>> origin/master
 }
-

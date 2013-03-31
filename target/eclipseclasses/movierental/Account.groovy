@@ -2,9 +2,12 @@ package movierental
 
 class Account {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+>>>>>>> origin/master
 	String userName;
 	String password;
 	String role;
@@ -13,6 +16,7 @@ class Account {
     static constraints = {
 	
 		fullName(blank:false)
+<<<<<<< HEAD
 <<<<<<< HEAD
 		userName(blank:false, unique:true)
 		password(blank:false)
@@ -64,4 +68,10 @@ class Account {
 		this.userName = userName;
 	}
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+		userName(blank:false, unique:true)
+		password(blank:false)
+		role(blank:false)
+    }
+>>>>>>> origin/master
 }

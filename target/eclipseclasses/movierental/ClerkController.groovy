@@ -1,6 +1,7 @@
 package movierental
 
 import org.springframework.dao.DataIntegrityViolationException
+<<<<<<< HEAD
 import Classes.*
 
 <<<<<<< HEAD
@@ -8,6 +9,8 @@ import Classes.*
 
 class ClerkController {	
 =======
+=======
+>>>>>>> origin/master
 import groovy.sql.Sql
 
 
@@ -16,12 +19,16 @@ class ClerkController {
 	def searchableService
 	def dataSource
 	def sessionFactory
+<<<<<<< HEAD
 	
 	
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 	
+=======
+
+>>>>>>> origin/master
     def index() { 
-    	render(view:"clerkMainPage")
+		render(view:"clerkMainPage")
 	}
 	
 	def addCustomerInit() {
@@ -29,6 +36,7 @@ class ClerkController {
 	}
 	
 	def addCustomer() {
+<<<<<<< HEAD
 		Request request = new Request()
 		IdGenerator ig = new IdGenerator()
 		
@@ -42,8 +50,24 @@ class ClerkController {
 		request.setAddress(params.address)
 		request.setContactNumber(params.contactNumber)
 		request.setEmail(params.email)
+=======
+		def db = new Sql(dataSource)
 		
-		String idNumber = ig.generateCustomerId()
+		def firstName = params.firstName
+		def lastName = params.lastName
+		def address = params.address
+		def contactNumber = params.contactNumber
+		def email = params.email
+		
+		Date now = new Date()
+		def date = g.formatDate(format:"yyyy", date:new Date())
+		[date:date]
+>>>>>>> origin/master
+		
+		Random random = new Random()
+		String idCode = (String) random.nextInt(9000) + 1000
+		
+		String idNumber = date+"-"+idCode
 		
 <<<<<<< HEAD
 		RequestDao rd = new RequestDao()
@@ -56,10 +80,11 @@ class ClerkController {
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		
 		while(customerExistingIds.id.contains(idNumber) && requestExistingIds.id.contains(idNumber)) {
-			idCode = ig.generateId()
+			idCode = (String) random.nextInt(9000) + 1000
 			idNumber = date+"-"+idCode
 		}
 		
+<<<<<<< HEAD
 <<<<<<< HEAD
 		rd.addRequest(request,idNumber)
 		
@@ -76,6 +101,13 @@ class ClerkController {
 	
 		
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+		db.execute("""insert into request(id,address,contact_number,first_name,last_name,email) 
+					values('${idNumber}','${address}','${contactNumber}','${firstName}','${lastName}','${email}')""")
+		
+		index()
+					
+>>>>>>> origin/master
 	}
 	
 	
@@ -105,6 +137,7 @@ class ClerkController {
 
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 	
 	
@@ -145,6 +178,27 @@ class ClerkController {
 		
 		redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:cart.getCustomerId()])		
 =======
+=======
+	def searchForCustomer2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"checkCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"checkCustomer2",model:[infos:result,parameter:parameter])
+
+	}
+	
+>>>>>>> origin/master
 	def viewCustomer() {
 		def db = new Sql(dataSource)
 		def id = params.id
@@ -174,6 +228,7 @@ class ClerkController {
 			result = db.rows(query)
 			render(view:"selectMovie",model:[id:id,movies:result,parameter:parameter,carts:result2])
 		}
+		//render(view:"selectMovie")
 	}
 	
 	def addToCart() {
@@ -181,11 +236,18 @@ class ClerkController {
 		def id = params.id
 		def parameter = params.parameter
 		def movieId = params.movieId
+<<<<<<< HEAD
 		
 		
 		db.execute("insert into cart(customer_id,movie_id) values('${id}','${movieId}')")
 		redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+		for(int i=0; i < 4; i++) {
+			db.execute("insert into cart(customer_id,movie_id) values('${id}','${movieId}')")
+			redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
+		}
+>>>>>>> origin/master
 		
 	}
 	
@@ -253,11 +315,10 @@ class ClerkController {
 		
 		db.execute("delete from cart where customer_id='${id}' and movie_id='${movieId}'")
 		redirect(controller:"clerk", action:"selectMovie", params:[parameter:parameter,id:id])
-		
 	}
 	
 	def saveTransaction() {
-		def db = new Sql(dataSource)
+	def db = new Sql(dataSource)
 		def id = params.id	
 		Date now = new Date()
 		Date due = now.plus(7)
@@ -279,11 +340,19 @@ class ClerkController {
 			db.execute("insert into transaction(customer_id,date,fee,movie_id,type) values('${id}','${now.format('MM/dd/yyyy')}','${it.rate}','${it.movie_id}','check out')")
 		}
 		
+		rentedMovies = db.rows("""select * from ((select * from movie) as a join (select movie_id from rented_movie where customer_id='${id}') as b on
+							a.id=b.movie_id)""")
 		
 		db.execute("delete from cart")
+<<<<<<< HEAD
 		render(view:"saveTransaction",model:[currentDate:dateFormat,info:info.get(0),movies:rentedMovies,dueFormat:dueFormat])
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		
+=======
+		render(view:'saveTransaction',model:[currentDate:dateFormat,info:info.get(0),movies:rentedMovies,dueFormat:dueFormat])
+		//render(view:"saveTransaction")
+	
+>>>>>>> origin/master
 	}
 	
 	def searchForCustomerRecord() {
@@ -320,7 +389,7 @@ class ClerkController {
 		
 		if(!parameter) {
 			result = db.rows("select id,first_name,last_name from customer order by first_name asc")
-			}
+		}
 		
 		else {
 			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
@@ -328,6 +397,24 @@ class ClerkController {
 			result = db.rows(query)
 			}
 		render(view:"searchCustomer",model:[infos:result,parameter:parameter])
+	}
+	
+	def searchForCustomerRecord2() {
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
+		
+		if(!parameter) {
+			//result = db.rows("select id,first_name,last_name from customer order by first_name asc")
+			render(view:"searchCustomer")
+		}
+		
+		else {
+			String query = """select id, first_name, last_name from customer where first_name ilike '%${parameter}%' or last_name ilike '%${parameter}%' order
+									by first_name asc"""
+			result = db.rows(query)
+			}
+		render(view:"searchCustomer2",model:[infos:result,parameter:parameter])
 	}
 	
 	def viewCustomerRecord() {
@@ -344,12 +431,19 @@ class ClerkController {
 		def db = new Sql(dataSource)
 		def id = params.id
 		def now = new Date()
+<<<<<<< HEAD
 		List<String> movieIDs = [params.movieID].flatten()
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
+=======
+		List<String> movieID = [params.movieID].flatten()
+		
+		def totalDue = params.totalDue
+>>>>>>> origin/master
 		def overdueRate
 		def dueDate
 		double daysPassed
 		double fee
+<<<<<<< HEAD
 <<<<<<< HEAD
 		MovieDao movieDao = new MovieDao()
 		RentedMovieDao rentedMovieDao = new RentedMovieDao()
@@ -366,6 +460,11 @@ class ClerkController {
 =======
 	
 		movieIDs.each{
+=======
+		
+		try{
+		movieID.each{
+>>>>>>> origin/master
 			overdueRate = db.rows("select overdue_rate from movie where id='${it}'")
 			dueDate = db.rows("select due_date from rented_movie where movie_id='${it}'")
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
@@ -392,7 +491,10 @@ class ClerkController {
 			db.execute("""insert into transaction(customer_id,date,fee,movie_id,type) values('${id}','${now.format('MM/dd/yyyy')}','${fee}','${it}','check in')""")
 			db.execute("delete from rented_movie where movie_id='${it}'")
 		}
-		
+		}
+		catch(Exception e) {
+			index()
+		}
 		
 >>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		index()
