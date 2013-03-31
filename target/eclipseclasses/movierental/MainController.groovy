@@ -2,11 +2,6 @@ package movierental
 
 import org.springframework.dao.DataIntegrityViolationException
 import groovy.sql.Sql
-<<<<<<< HEAD
-import Classes.*
-
-=======
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 
 class MainController {
 
@@ -15,46 +10,14 @@ class MainController {
 	def sessionFactory
 
     def index() { 
-<<<<<<< HEAD
-		RequestDao rd = new RequestDao()
-		def request = rd.getAllRequests()
-=======
 		
 		def db = new Sql(dataSource);
 		def request = db.rows("Select * from request")
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		
 		render(view:"adminMainPage",model:[requests:request])
 	}
 	
 	def requestAction() {
-<<<<<<< HEAD
-		def response = params.response
-		def id = params.id
-		
-		RequestDao requestDao = new RequestDao()
-		def infos = requestDao.getRequest(id)
-		def info = infos.get(0)
-		
-		Customer customer = new Customer()
-		customer.setAddress(info.address)
-		customer.setContactNumber(info.contact_number)
-		customer.setFirstName(info.first_name)
-		customer.setLastName(info.last_name)
-		customer.setEmail(info.email)
-		
-		CustomerDao customerDao = new CustomerDao()
-		RequestDao rd = new RequestDao()
-		
-		switch(response) {
-			case "Approve":
-				customerDao.addCustomer(customer,info.id)
-				rd.deleteRequest(id)
-				index();
-				break
-			case "Reject":
-				rd.deleteRequest(id)
-=======
 		def db = new Sql(dataSource)
 		def response = params.response
 		def id = params.id
@@ -70,7 +33,6 @@ class MainController {
 				break
 			case "Reject":
 				db.execute("delete from request where id='${id}'");
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 				index();
 				break
 			default:
@@ -85,56 +47,21 @@ class MainController {
 	}
 	
 	def addClerk() {
-<<<<<<< HEAD
-=======
 		def db = new Sql(dataSource)
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		def fullName = params.fullName
 		def userName = params.userName
 		def password1 = params.password1
 		def password2 = params.password2
 		
-<<<<<<< HEAD
-		AccountDao accountDao = new AccountDao()
-		
-		def clerkExistingUsername = accountDao.getUserName()
-		def clerkExistingPassword = accountDao.getPassword()
-		def clerkExistingFullname = accountDao.getFullName()
-		
-		if(clerkExistingUsername.user_name.contains(userName)) {
-			render(view:'usernameAndPasswordExists')
-		}else if(clerkExistingFullname.full_name.contains(fullName)) {
-			render(view:'clerkExists')
-		}else {
-		
-		Account account = new Account()
-		account.setFullName(fullName)
-		account.setUserName(userName)
-		account.setPassword(password1)
-		account.setRole("clerk")
-		
-		switch(password1) {
-			case password2:
-				accountDao.addAccount(account)
-=======
 		switch(password1) {
 			case password2:
 				db.execute("""insert into account(full_name,user_name,password,role) values('${fullName}','${userName}','${password1}','clerk')""");
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 				index();
 				break
 			default:
 				index();
 				break
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-		}
-=======
-		
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
-=======
->>>>>>> origin/master
 	}
 	
 	def addCustomerInit() {
@@ -142,76 +69,6 @@ class MainController {
 	}
 	
 	def addCustomer() {
-<<<<<<< HEAD
-		Customer customer = new Customer()
-		CustomerDao cd = new CustomerDao()
-		customer.setFirstName(params.firstName)
-		customer.setLastName(params.lastName)
-		customer.setAddress(params.address)
-		customer.setContactNumber(params.contactNumber)
-		customer.setEmail(params.email)
-		
-		IdGenerator ig = new IdGenerator()
-		String idNumber = ig.generateCustomerId()
-				
-		RequestDao rd = new RequestDao()
-		
-		def customerExistingIds = cd.getCustomerIds()
-		def requestExistingIds = rd.getExistingIds()
-		def customerExistingFirstname = cd.getFirstName()
-		def customerExistingLastname = cd.getLastName()
-		
-		if(customerExistingFirstname.first_name.contains(customer.getFirstName()) && customerExistingLastname.last_name.contains(customer.getLastName())) {
-			render(view:"customerExists")
-		}else {
-		while(customerExistingIds.id.contains(idNumber) && requestExistingIds.id.contains(idNumber)) {
-			idCode = ig.generateId()
-			idNumber = date+"-"+idCode
-		}
-		
-		
-		cd.addCustomer(customer,idNumber)			
-		index()
-		}
-	}
-	
-	def manageInventory() {
-		def parameter = params.parameter
-		
-		MovieDao movieDao = new MovieDao()
-		def movies = movieDao.getAllMovies(parameter)
-		
-		render(view:"manageInventory",model:[movies:movies,parameter:parameter])
-	
-	}
-	
-	def addInventory() {
-		def db = new Sql(dataSource)
-		double rate = Double.parseDouble(params.rate)
-		double overdueRate = Double.parseDouble(params.overdueRate)
-		MovieDao movieDao = new MovieDao()
-		Movie movie = new Movie()
-		movie.setTitle(params.title)
-		movie.setMedium(params.medium)
-		movie.setGenre(params.genre)
-		movie.setDirector(params.director)
-		movie.setActorOrActress(params.actorOrActress)
-		movie.setStatus("good")
-		movie.setRate(rate)
-		movie.setOverdueRate(overdueRate)
-		
-		IdGenerator ig = new IdGenerator()
-		String idCode = ig.generateId()
-		
-		//String idCode = (String) random.nextInt(9000) + 1000
-		def movieExistingIds = movieDao.getIds()
-		
-		while(movieExistingIds.id.contains(idCode)) {
-			idCode = ig.generateId()
-		}
-		
-		movieDao.addMovie(movie,idCode)
-=======
 		def firstName = params.firstName
 		def lastName = params.lastName
 		def address = params.address
@@ -317,53 +174,23 @@ class MainController {
 		
 		db.execute("""insert into movie(id,director,genre,title,medium,actor_or_actress,status,rate,overdue_rate)
 		values('${idCode}','${director}','${genre}','${title}','${medium}','${actorOrActress}','good','${rate}','${overdueRate}')""")
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		
 		manageInventory()
 		
 	}
 	
 	def editInventoryInit() {
-<<<<<<< HEAD
-		def id = params.id
-		def parameter = params.parameter
-		
-		MovieDao md = new MovieDao()
-		def query = md.getMoviesWithId(id)
-=======
 		def db = new Sql(dataSource)
 		def id = params.id
 		def parameter = params.parameter
 		
 		def query = db.rows("Select * from movie where id='${id}'")
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		def result = query.get(0)
 		render(view:"editInventory",model:[infos:result,parameter:parameter])
 		
 	}
 	
 	def editInventory() {
-<<<<<<< HEAD
-		double rate = Double.parseDouble(params.rate)
-		double overdueRate = Double.parseDouble(params.overdueRate)
-		
-		Movie movie = new Movie()
-		
-		movie.setTitle(params.title)
-		movie.setMedium(params.medium)
-		movie.setGenre(params.genre)
-		movie.setDirector(params.director)
-		movie.setActorOrActress(params.actorOrActress)
-		movie.setStatus("good")
-		movie.setRate(rate)
-		movie.setOverdueRate(overdueRate)
-		
-		def parameter = params.parameter
-		def id = params.id
-		
-		MovieDao movieDao = new MovieDao()
-		movieDao.updateMovie(movie,id)
-=======
 		def db = new Sql(dataSource)
 		def title = params.title
 		def genre = params.genre
@@ -377,46 +204,27 @@ class MainController {
 		
 		db.execute("""update movie set title='${title}', genre='${genre}', director='${director}', actor_or_actress='${actorOrActress}', medium='${medium}',
 						rate='${rate}',overdue_rate='${overdueRate}' where id='${params.id}'""")
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		
 		manageInventory()
 		
 	}
 	
 	def markAsDamaged() {
-<<<<<<< HEAD
-=======
 		def db = new Sql(dataSource)
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		def id = params.id
 		def parameter = params.parameter
 		def marker = params.marker
 		
-<<<<<<< HEAD
-		MovieDao md = new MovieDao()
-		
-		switch(marker) {
-			case "Mark as damaged" :
-				md.markDamaged(id)
-				break
-			case "Mark as good" :
-				md.markGood(id)
-=======
 		switch(marker) {
 			case "Mark as damaged" :
 				db.execute("update movie set status = 'damaged' where id='${id}'");
 				break
 			case "Mark as good" :
 				db.execute("update movie set status = 'good' where id='${id}'");
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 				break;
 			default:
 				render("error!")
 				break;
-<<<<<<< HEAD
-				
-=======
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
 		}
 		
 		redirect(controller:"main", action:"manageInventory", params:[parameter:parameter])
@@ -428,31 +236,9 @@ class MainController {
 	    def parameter = params.parameter
 		Date now = new Date()
 		
-<<<<<<< HEAD
-<<<<<<< HEAD
-		TransactionDao td = new TransactionDao()
-		
-		switch(parameter) {
-			case null:
-				def resultByDay = td.showDaily(now)
-				render(view:"showTransactions",model:[transactions:resultByDay,parameter:parameter]);
-				break;
-			case "daily":
-				def resultByDay = td.showDaily(now)
-				render(view:"showTransactions",model:[transactions:resultByDay,parameter:parameter]);
-				break;
-			case "weekly":
-				def resultByWeek = td.showWeekly()
-				render(view:"showTransactions",model:[transactions:resultByWeek,parameter:parameter]);
-				break;
-			case "yearly":
-				def resultByYear = td.showYearly()
-=======
-=======
 		//def date = g.formatDate(format:"yyyy", date:new Date())
 		//[date:date]
 		
->>>>>>> origin/master
 		switch(parameter) {
 			case null:
 				def resultByDay = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id) where date='${now.format('MM/dd/yyyy')}'""");
@@ -473,13 +259,7 @@ class MainController {
 				render(view:"showTransactions",model:[transactions:resultByWeek,parameter:parameter]);
 				break;
 			case "yearly":
-<<<<<<< HEAD
-				def resultByYear = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on 
-											a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id)""")
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
-=======
 				def resultByYear = db.rows("""select * from((select * from ((select * from transaction) as a join (select * from customer) as b on a.customer_id=b.id)) as a join (select * from movie) as b on a.movie_id=b.id)""")
->>>>>>> origin/master
 				render(view:"showTransactions",model:[transactions:resultByYear,parameter:parameter]);
 				break;
 			case "monthly":
@@ -500,38 +280,12 @@ class MainController {
 				showTransactions()
 				break;
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
 	}
 	
 	def searchForCustomer() {
 		def db = new Sql(dataSource)
 		def parameter = params.parameter
-<<<<<<< HEAD
-		CustomerDao cd = new CustomerDao()
-		def result = cd.getCustomer(parameter)
-				
-		render(view:"checkCustomer",model:[infos:result,parameter:parameter])
-	}
-	
-	
-	
-	def viewCustomer() {
-		def db = new Sql(dataSource)
-		def id = params.id
-	
-		CustomerDao cd = new CustomerDao()
-		def result = cd.getCustomerWithId(id)
-		def liabilities = cd.getCustomerLiabilities(id)
-		
-		render(view:"viewCustomer",model:[info:result.get(0),liabilities:liabilities])
-	}
-=======
-=======
 		def result
->>>>>>> origin/master
 		
 		if(!parameter) {
 			result = db.rows("select id,first_name,last_name from customer order by first_name asc")
@@ -563,10 +317,6 @@ class MainController {
 		render(view:"checkCustomer2",model:[infos:result,parameter:parameter])
 	}
 	
-<<<<<<< HEAD
-	
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
-=======
 	def viewCustomer() {
 		def db = new Sql(dataSource)
 		def id = params.id
@@ -575,5 +325,4 @@ class MainController {
 							a.movie_id=b.id)""")
 		render(view:"viewCustomer",model:[info:result.get(0),liabilities:liabilities])
 	}
->>>>>>> origin/master
 }

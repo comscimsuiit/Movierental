@@ -13,25 +13,12 @@
 <body>
 	
 	<div align="center">
-<<<<<<< HEAD
-		<g:form controller="clerk" action="searchForCustomerRecord" class="form-search">
-=======
 		<g:form controller="clerk" action="searchForCustomerRecord2" class="form-search">
->>>>>>> origin/master
 			<input type="text" placeholder="Search Customer" name="parameter" value="${parameter}" class="input-medium search-query icon-search">
 			<input type="submit" class="btn btn-primary btn-small" value="Search">
 		</g:form>
 	</div>
 	
-<<<<<<< HEAD
-	<div align="center">
-	<g:if test="${infos}">
-		<table width=700>
-				<tr>
-					<th><font color="white">First Name</font></th>
-					<th><font color="white">Last Name</font></th>
-				</tr>
-=======
 	<%--<div align="center">
 		<table width="400">
 			<tr>
@@ -41,7 +28,6 @@
 				
 			</tr>
 			
->>>>>>> origin/master
 			<g:each in="${infos}" var="${info}">
 				<tr>
 					<td><font color="white"><center>${info.first_name}</center></font></td>
@@ -49,22 +35,13 @@
 					<td>
 						<g:form controller="clerk" action="viewCustomerRecord">
 							<input type="hidden" name="id" value="${info.id}">
-<<<<<<< HEAD
-							<input required="true" type="submit" class="btn btn-primary btn-small" value="View">
-=======
 							<input type="submit" class="btn btn-primary btn-small" value="View">
->>>>>>> origin/master
 						</g:form>
 					</td>
 				</tr>
 			</g:each>
 		</table>
-<<<<<<< HEAD
-	</g:if>
-	</div><br/><br/><br/><br/>
-=======
 	</div>--%>
->>>>>>> origin/master
 	
 	<div>
 		<g:form controller="clerk" action="index">

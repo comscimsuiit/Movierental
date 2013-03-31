@@ -261,18 +261,8 @@ select[multiple] {
 }
 
 textarea {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	width: 1000px;
 	height: 900px;
-=======
-	width: 250px;
-	height: 150px;
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
-=======
-	width: 1000px;
-	height: 900px;
->>>>>>> origin/master
 	overflow: auto; /* IE always renders vertical scrollbar without this */
 	vertical-align: top;
 }

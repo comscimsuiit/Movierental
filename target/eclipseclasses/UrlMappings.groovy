@@ -1,10 +1,6 @@
 class UrlMappings {
 
 	static mappings = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
 		
 		/* 
 		 * Pages without controller 
@@ -27,7 +23,6 @@ class UrlMappings {
 			action		= { 'index' }
             view		= { 'index' }
         }
-<<<<<<< HEAD
 		"/$controller/$action?/$id?"{
 			constraints {
 				controller(matches:/^((?!(api|mobile|web)).*)$/)
@@ -43,30 +38,5 @@ class UrlMappings {
 		"503"	(view:'/_errors/503')
 		
 		"/"(controller:'user', action:'index')
-=======
-=======
->>>>>>> origin/master
-		"/$controller/$action?/$id?"{
-			constraints {
-				controller(matches:/^((?!(api|mobile|web)).*)$/)
-		  	}
-		}
-<<<<<<< HEAD
-
-		"/"(view:"/index")
-		"500"(view:'/error')
->>>>>>> 1a6d97f912a0ed6ec36fea4c2115715844aa52ac
-=======
-		
-		/* 
-		 * System Pages without controller 
-		 */
-		"403"	(view:'/_errors/403')
-		"404"	(view:'/_errors/404')
-		"500"	(view:'/_errors/error')
-		"503"	(view:'/_errors/503')
-		
-		"/"(controller:'user', action:'index')
->>>>>>> origin/master
 	}
 }
